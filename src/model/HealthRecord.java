@@ -14,7 +14,7 @@ public class HealthRecord {
 	public HealthRecord(String name, int dosesAmntHistory) {
 		this.name = name;
 		this.dosesTotal = 0;
-		
+		//base status if no appointments have been booked yet
 		this.status = "No vaccination appointment for " + name + " yet";
 		
 		//Arrays for storing record info
@@ -22,7 +22,7 @@ public class HealthRecord {
 		this.locationArray = new String[dosesAmntHistory];
 		this.dateCodeArray = new String[dosesAmntHistory];
 	}
-
+	//Prints out a vaccination receipt which states total number of vaccines taken if any
 	public String getVaccinationReceipt() {
 
 		String stringReport = "Number of doses " + this.name + " has received: " + this.dosesTotal + " [";
@@ -46,16 +46,17 @@ public class HealthRecord {
 	}
 
 	public String getAppointmentStatus() {return status;}
-
+	
+	//Adds a new vaccination record with the type of vaccine, date, and hospital location and increments total vaccine count
 	public void addRecord(Vaccine vaccine, String location, String date) {
 		this.vaccineRecord[dosesTotal] = vaccine;
 		this.locationArray[dosesTotal] = location;
 		this.dateCodeArray[dosesTotal] = date;
 		this.dosesTotal ++;
 	}
-
+	//Sets status message status
 	public void setStatus(String status) {this.status = status;}
-
+	//Gets the name of the client
 	public String getName() {return name;}
 	
 }
